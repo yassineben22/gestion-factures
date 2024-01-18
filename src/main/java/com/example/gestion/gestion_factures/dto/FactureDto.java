@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -26,4 +27,6 @@ public class FactureDto {
     private double montant;
 
     private CategorieFactureDto2 categorieFacture;
+
+    private List<DepenseDto2> depenses;
 }

@@ -4,8 +4,11 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -27,4 +30,9 @@ public class Facture {
 
     @ManyToOne(optional = false)
     private CategorieFacture categorieFacture;
+
+    @OneToMany(mappedBy = "facture", orphanRemoval = true)
+    @Cascade(CascadeType.DELETE_ORPHAN)
+    private List<Depense> depenses;
+
 }
